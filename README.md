@@ -1,8 +1,11 @@
-# React + Vite
+# Roboflag 3D Front end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Ensure you have nodejs (and npm) installed
+2. Clone the repository to your local machine
+3. Change directory to the directory you cloned to
+4. Install the dependencies
+    $ npm install
+5. Start a development server
+    $ npm run dev
+6. The output of the previous command gives you the URL to launch
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
