@@ -1,6 +1,6 @@
 # Roboflag 3D Front end
 
-1. Ensure you have nodejs (and npm) installed
+1. Ensure you have nodejs (and npm) installed. Can be downloaded here: https://nodejs.org/en
 2. Clone the repository to your local machine
     ```
     git clone https://github.com/ujeejee/roboflag-r3f
