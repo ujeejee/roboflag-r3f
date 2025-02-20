@@ -40,16 +40,15 @@ export const Obstacle = forwardRef( ( props, ref) => {
             <mesh castShadow={true} >
                 <boxGeometry attach="geometry" args={props.size} />
                 
+                {
+                    // order of the mesh material for each face is right, left, top, bottom, front, back
+                }
                 <meshStandardMaterial attach="material-0" map={sideTexture} />
                 <meshStandardMaterial attach="material-1" map={sideTexture} />
                 <meshStandardMaterial attach="material-2" map={roofTexture} />
                 <meshStandardMaterial attach="material-3" map={roofTexture} />
                 <meshStandardMaterial attach="material-4" map={sideTexture} />
                 <meshStandardMaterial attach="material-5" map={sideTexture} />
-
-                {
-                    // order is right, left, top, bottom, front, back
-                }
             </mesh>
         </group>
     );
