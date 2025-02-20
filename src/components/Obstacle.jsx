@@ -40,34 +40,16 @@ export const Obstacle = forwardRef( ( props, ref) => {
             <mesh castShadow={true} >
                 <boxGeometry attach="geometry" args={props.size} />
                 
-                <meshStandardMaterial key="0" attachArray="material" map={sideTexture} />
-                <meshStandardMaterial key="1" attachArray="material" map={roofTexture} />
-                <meshStandardMaterial key="2" attachArray="material-2" map={roofTexture} />
-                <meshStandardMaterial key="3" attachArray="material-3" map={roofTexture} />
-                <meshStandardMaterial key="4" attachArray="material-4" map={roofTexture} />
-                <meshStandardMaterial key="5" attachArray="material-5" map={roofTexture} />
+                <meshStandardMaterial attach="material-0" map={sideTexture} />
+                <meshStandardMaterial attach="material-1" map={sideTexture} />
+                <meshStandardMaterial attach="material-2" map={roofTexture} />
+                <meshStandardMaterial attach="material-3" map={roofTexture} />
+                <meshStandardMaterial attach="material-4" map={sideTexture} />
+                <meshStandardMaterial attach="material-5" map={sideTexture} />
 
-                {/*right*/}
-                {/* <meshStandardMaterial key="0" attachArray="material-0" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} /> */}
-                {/*left*/}
-                {/* <meshStandardMaterial key="1" attachArray="material-1" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} />  */}
-                {/*top*/}
-                {/* <meshStandardMaterial key="2" attachArray="material-0" map={roofTexture} /> */}
-                {/* if ( hasRoofTexture) { */}
-                
-                {/* } */}
-                {/* else { */}
-                    {/* <meshStandardMaterial attachArray="material-2" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} /> */}
-                {/* } */}
-                
-                 {/*bottom*/}
-                {/* <meshStandardMaterial key="3" attachArray="material-3" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} />  */}
-                {/*front*/}
-                {/* <meshStandardMaterial key="4" attachArray="material-4" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} /> */}
-                {/*back*/}
-                {/* <meshStandardMaterial key="5" attachArray="material-5" map={colorMap} normalMap={normalMap} displacementMap={heightMap} roughnessMap={roughnessMap} alphaMap={maskMap} displacementScale={0.1} />  */}
-
-
+                {
+                    // order is right, left, top, bottom, front, back
+                }
             </mesh>
         </group>
     );
