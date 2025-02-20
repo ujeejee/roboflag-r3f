@@ -33,7 +33,7 @@ export const Flag = forwardRef( (props, ref) => {
                     child.material.color.set( newColor)
                 }
             })
-            textRef.current.color.set( newColor)
+            textRef.current.color = newColor
         }
     }))
 

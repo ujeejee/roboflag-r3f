@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from '@react-three/drei'
+import { Canvas, useThree, useLoader } from "@react-three/fiber"
+import { OrbitControls, Environment } from '@react-three/drei'
 import { events } from 'aws-amplify/data'
 // import { useControls, Leva, LevaInputs} from 'leva'
 import * as THREE from 'three'
+import { TextureLoader } from 'three'
 
 import { Model } from './Model'
 import { Track } from './Track'
 import { PointLightWithHelper } from './PointLightWithHelper'
+import { currentTimeHHMMSSAsString } from '../utils'
 
 // The overall scene and lighting
 export function Scene() {
@@ -16,8 +18,8 @@ export function Scene() {
   const actorRefs = useRef([])
   // const [messages, setMessages] = useState([])
 
-  const leftStartPos = Math.trunc(-(trackWidth/2))+0.5
-  const rightStartPos = Math.trunc((trackWidth/2))-0.5
+  const leftStartPos = Math.trunc(-(trackWidth/2))
+  const rightStartPos = Math.trunc((trackWidth/2))
 
   const actors = [
     { path: "low poly blue car.glb", initialPosition: [leftStartPos,0,Math.trunc(trackHeight/2)-1], reorient: true, actorId: "Green1", actorIndex: 0, color: "green" },
@@ -50,6 +52,8 @@ export function Scene() {
             const actor = actors.find( (actor) => actor.actorId == actorId)
             actorIndex = actor.actorIndex
           }
+
+          console.log( "%s - From appsync events - actor: %s, input move: %s, shortened move: %s", currentTimeHHMMSSAsString(), actorId, data.event.Move, move)
 
           if ( actorIndex !== undefined && actorIndex !== 99) {
             // need to translate the NSEW move received from appsync into actual moves depending on
@@ -169,6 +173,8 @@ export function Scene() {
   return (
     <div>
       <Canvas shadows="percentage" camera={{ position: [-20, 15, 20], fov: 40 }}>
+        {/* <Background /> */}
+
         <ambientLight intensity={0.6} />
         {/* <hemisphereLight skycolor={0xffffff} groundColor={0xffffff} intensity={0.3} position={[0, 50, 0]} /> */}
         {/* <pointLight position={[-25, 25, 50]} intensity={4.5} color={0xffffff} /> */}
@@ -228,6 +234,14 @@ export function Scene() {
 
     </div>
   )
+}
+
+function Background() {
+  const { scene } = useThree()
+  const texture = useLoader(TextureLoader, "textures/sky2.jpg")
+  
+  scene.background = texture
+  return null
 }
 
 

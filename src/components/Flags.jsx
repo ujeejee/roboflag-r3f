@@ -3,6 +3,7 @@ import { Canvas, useLoader } from "@react-three/fiber"
 import { events } from 'aws-amplify/data'
 
 import { Flag } from './Flag'
+import { currentTimeHHMMSSAsString } from '../utils'
 
 export function Flags( { trackWidth, trackHeight}) {
     const flagRefs = useRef([])
@@ -35,6 +36,7 @@ export function Flags( { trackWidth, trackHeight}) {
 
                 const flag = flags.find( (flag) => flag.flagId == flagId )
                 if ( flag !== undefined) {
+                    console.log( "%s - Flags - flagId: %s, status: %s, claimedByTeam: %s", currentTimeHHMMSSAsString(), flagId, status, claimedByTeam)
                     if (status) {
                         if ( claimedByTeam.toLowerCase() == 'green') {
                             flagRefs.current[ flag.flagIndex].changeFlagColor( "green")

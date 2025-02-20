@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber"
 import { useGLTF, Text } from '@react-three/drei'
 
 export const Model = forwardRef( (props, ref) => {
-  const fontProps = { font: 'fonts/Inter-Bold.woff', fontSize: 0.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
+  const fontProps = { font: 'fonts/Inter-Bold.woff', fontSize: 0.35, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
   const modelref = useRef()
   const textRef = useRef()
 
